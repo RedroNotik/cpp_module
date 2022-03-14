@@ -4,19 +4,15 @@
 
 #ifndef CPP_MODULE_CONTACT_H
 #define CPP_MODULE_CONTACT_H
-
 #include <iostream>
+#define F_SIZE 5
 class Contact
 {
-public:
-	char	*first_name;
-	char 	*second_name;
-	char	*nickname;
-	char 	*phone_number;
-	char 	*darkest_secret;
+	static std::string field[5];
+	std::string data[5];
 public:
 	void setContact();
-	void getContact();
+	void getContact(int i);
 };
 
 

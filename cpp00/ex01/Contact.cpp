@@ -4,17 +4,27 @@
 
 #include "Contact.h"
 
+std::string Contact:: field[5] ={
+		"First name",
+		"Second name",
+		"Nickname",
+		"Phone number",
+		"Darkest secret"
+};
 
-void  Contact::setContact(void)
+void  Contact::setContact()
 {
-	std::cin >> this->first_name;
-	std::cin >> this->second_name;
-	std::cout << "WTF" << std::endl;
+	for(size_t i = 0; i < F_SIZE; i++)
+	{
+		while (this->data[i].empty())
+		{
+			std::cout << "Enter " << field[i] << ": ";
+			getline(std::cin, this->data[i]);
+		}
+	}
 }
 
-void  Contact::getContact(void)
+void  Contact::getContact(int i)
 {
-	std::cout << this->first_name;
-	std::cout << this->second_name;
-	std::cout << "WTF" << std::endl;
+	std::cout << data[i];
 }
