@@ -12,6 +12,10 @@ std::string Contact:: field[5] ={
 		"Darkest secret"
 };
 
+void	Contact::getField(int i)
+{
+	std::cout << field[i];
+}
 void  Contact::setContact()
 {
 	for(size_t i = 0; i < F_SIZE; i++)
@@ -24,7 +28,10 @@ void  Contact::setContact()
 	}
 }
 
-void  Contact::getContact(int i)
+void  Contact::getContact(int i, int len)
 {
-	std::cout << data[i];
+	if (len == 10 && data[i].length() > 10)
+		std::cout << data[i].substr(0, 9) << '.';
+	else
+		std::cout << data[i];
 }

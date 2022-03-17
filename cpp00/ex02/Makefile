@@ -2,7 +2,7 @@
 NAME = create_log
 
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I./
+FLAGS =  -std=c++98 -I./ #-Wall -Wextra -Werror
 
 SRC = ./Account.cpp  ./test.cpp
 

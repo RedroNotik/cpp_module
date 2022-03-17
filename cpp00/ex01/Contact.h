@@ -12,7 +12,8 @@ class Contact
 	std::string data[5];
 public:
 	void setContact();
-	void getContact(int i);
+	void getContact(int i, int len);
+	void getField(int i);
 };
 
 
