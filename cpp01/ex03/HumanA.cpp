@@ -4,18 +4,16 @@
 
 #include "HumanA.hpp"
 
-//HumanA::HumanA()
-//{}
-//
-//HumanA::HumanA(std::string name):name(name)
-//{}
-
 HumanA::~HumanA()
-{}
+{
+	std::cout << name << " is destroyed" << std::endl;
+}
 
 HumanA::HumanA(std::string const &name, const Weapon &weapon):name(name), weapon
 (weapon)
-{}
+{
+	std::cout << name << " is created" << std::endl;
+}
 
 void HumanA::attack() const
 {

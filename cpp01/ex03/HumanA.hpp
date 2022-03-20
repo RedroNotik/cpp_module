@@ -9,8 +9,6 @@
 class HumanA
 {
 public:
-	HumanA();
-	HumanA(std::string name);
 	HumanA(std::string const &name, const Weapon &weapon);
 	~HumanA();
 	void attack() const;

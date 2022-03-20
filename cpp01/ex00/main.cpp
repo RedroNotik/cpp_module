@@ -11,7 +11,8 @@ int main()
 {
 	Zombie* kek = newZombie("Alex");
 	kek->announce();
-	randomChump("John");
 	delete kek;
+	randomChump("John");
+
 	return (0);
 }
