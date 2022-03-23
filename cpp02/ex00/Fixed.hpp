@@ -20,7 +20,6 @@ public:
 
 private:
 	int f_p_number;
-	int age;
 	static const int num_fr_b= 8;
 };
 

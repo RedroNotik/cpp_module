@@ -17,19 +17,19 @@ int main()
 //		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") << std::endl; // 1. false
 //	}
 
-	// Test inside
-	std::cout << "\nTEST INSIDE:" << std::endl;
-	{
-		Point a(Fixed(1), Fixed());
-
-		Point b(Fixed(-1), Fixed());
-		Point c(Fixed(), Fixed(1));
-		Point p(Fixed(0.4f), Fixed(0.4f));
-		std::cout << "TEST::" << p << std::endl;
-		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") <<
-		std::endl; // 1. true
-	}
-
+//	// Test inside
+//	std::cout << "\nTEST INSIDE:" << std::endl;
+//	{
+//		Point a(Fixed(1), Fixed());
+//
+//		Point b(Fixed(-1), Fixed());
+//		Point c(Fixed(), Fixed(1));
+//		Point p(Fixed(0.4f), Fixed(0.4f));
+//		std::cout << "TEST::" << p << std::endl;
+//		std::cout << "1. " << (bsp(a, b, c, p) ? "true" : "false") <<
+//		std::endl; // 1. true
+//	}
+//
 //	// Test edges
 //	std::cout << "\nTEST EDGES:" << std::endl;
 //	{
@@ -52,5 +52,5 @@ int main()
 //		std::cout << "3. " << (bsp(a, b, c, b) ? "true" : "false") << std::endl; // 3. false
 //		std::cout << "4. " << (bsp(a, b, c, c) ? "true" : "false") << std::endl; // 4. false
 //	}
-	return 0;
+//	return 0;
 }
