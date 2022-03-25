@@ -21,8 +21,8 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-private:
-	const std::string name;
+protected:
+	std::string name;
 	int hit_points;
 	int en_points;
 	int attack_d;

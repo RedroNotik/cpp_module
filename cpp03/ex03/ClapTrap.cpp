@@ -67,7 +67,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (hit_points <= 0)
 	{
 		std::cout << name << " is dead" << std::endl;
-		delete this;
 	}
 
 }
