@@ -16,6 +16,9 @@ public:
 	void makeSound() const;
 
 	Cat &operator=(Cat const &rhs);
+
+private:
+	Brain *brain;
 };
 
 

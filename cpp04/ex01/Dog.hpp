@@ -16,6 +16,9 @@ public:
 	void makeSound() const;
 
 	Dog &operator=(Dog const &rhs);
+
+private:
+	Brain *brain;
 };
 
 

@@ -1,10 +1,10 @@
 
 NAME = name
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I./
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I./ #-Wshadow -Wno-shadow
 
 SRC =   ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp \
-		./WrongAnimal.cpp ./WrongCat.cpp
+		./WrongAnimal.cpp ./WrongCat.cpp ./Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
