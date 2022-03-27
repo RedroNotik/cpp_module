@@ -3,7 +3,8 @@ NAME = clap_trap
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -I./
 
-SRC =   ./main.cpp ./Animal.cpp ./Dog.cpp
+SRC =   ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp \
+		./WrongAnimal.cpp ./WrongCat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
