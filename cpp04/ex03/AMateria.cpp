@@ -26,7 +26,7 @@ AMateria::AMateria(const AMateria &rhs)
 
 AMateria &AMateria::operator=(const AMateria &rhs)
 {
-	(void )rhs;
+	this->type = rhs.getType();
 	return *this;
 }
 

@@ -20,19 +20,39 @@ Character::~Character()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		if (inventory[i])
+		if (inventory[i] != nullptr)
+			delete inventory[i];
 	}
 }
 
-std::string const Character::getName() const
+std::string const &Character::getName() const
 {
 	return (this->name);
 }
 
 Character &Character::operator=(const Character &rhs)
 {
+	if (&rhs == this)
+		return *this;
 	this->name = rhs.getName();
+	for (int i = 0; i < 4; ++i)
+	{
+		if (inventory[i] != nullptr)
+			delete inventory[i];
+		if (rhs.inventory[i] != nullptr)
+			inventory[i] = rhs.inventory[i]->clone();
+		else
+			inventory[i] = nullptr;
+	}
 	return *this;
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (inventory[idx] != nullptr)
+	{
+		inventory[idx]->use(target);
+	}
 }
 
 void Character::equip(AMateria *m)

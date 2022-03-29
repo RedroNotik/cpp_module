@@ -3,7 +3,8 @@ NAME = name
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -I./
 
-SRC =   ./main.cpp ./AMateria.cpp  ./Ice.cpp
+SRC =   ./main.cpp ./AMateria.cpp  ./Ice.cpp ./ICharacter.cpp \
+		./MateriaSource.cpp ./Cure.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
