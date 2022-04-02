@@ -15,6 +15,8 @@ int main()
 			Bureaucrat *josh = new Bureaucrat(*bob);
 			std::cout << *bob << std::endl;
 			std::cout << *josh << std::endl;
+			delete bob;
+			delete josh;
 		}
 		catch (std::exception &e)
 		{
@@ -29,6 +31,8 @@ int main()
 			std::cout << *bob << std::endl;
 			Bureaucrat *josh = new Bureaucrat(*bob);
 			std::cout << *josh << std::endl;
+			delete bob;
+			delete josh;
 		}
 		catch (std::exception &e)
 		{
@@ -53,6 +57,7 @@ int main()
 			{
 				std::cerr << e.what() << std::endl;
 			}
+			delete bob;
 		}
 		catch (std::exception &e)
 		{
@@ -65,9 +70,9 @@ int main()
 		{
 			Bureaucrat *bob = new Bureaucrat("Bob", 1);
 			std::cout << *bob << std::endl;
-			bob->IncrGrade();
-			std::cout << *bob << std::endl;
 			try {
+				bob->IncrGrade();
+				std::cout << *bob << std::endl;
 				bob->DecrGrade();
 				std::cout << *bob << std::endl;
 			}
@@ -75,6 +80,7 @@ int main()
 			{
 				std::cerr << e.what() << std::endl;
 			}
+			delete bob;
 		}
 		catch (std::exception &e)
 		{

@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	g++ -o $(NAME) $(OBJ)
 
-%.o: %.cpp
+%.o: %.cpp %.hpp
 	g++ $(FLAGS) -c $< -o $@
 
 clean:

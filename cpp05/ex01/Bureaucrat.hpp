@@ -6,6 +6,9 @@
 #define CPP_MODULE_BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -37,6 +40,7 @@ public:
 	void IncrGrade();
 	void DecrGrade();
 
+	void signForm(Form form);
 };
 
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & i);
