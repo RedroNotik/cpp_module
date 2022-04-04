@@ -38,7 +38,7 @@ void Bureaucrat::signForm(Form form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << *this << " signed " << form << std::endl;
+//		std::cout << *this << " signed " << form << std::endl;
 	}
 	catch(std::exception &e)
 	{
@@ -67,6 +67,16 @@ void Bureaucrat::DecrGrade()
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException() ;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Exception:Grade too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Exception:Grade too low");
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)

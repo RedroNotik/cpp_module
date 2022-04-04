@@ -4,11 +4,26 @@
 
 #include "ShrubberyCreationForm.hpp"
 
+std::string const ShrubberyCreationForm::tree[10] = {
+		" ",
+		"       _-_",
+		"    /~~   ~~\\",
+		" /~~         ~~\\",
+		"{               }",
+		" \\  _-     -_  /",
+		"   ~  \\\\ //  ~",
+		"_- -   | | _- _",
+		"  _ -  | |   -_",
+		"      // \\\\"
+};
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): Form
 ("ShrubberyCreationForm", 145, 137), target(target)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm
+&rhs): Form
+("ShrubberyCreationForm", 145, 137)
 {
 	*this = rhs;
 }
@@ -23,8 +38,30 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
+const char *ShrubberyCreationForm::WriteInFileError::what() const throw()
+{
+	return ("Exception opening/writing/closing file");
+}
+
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-	if (executor.getGrade() > this->getRGToExecute())
-		throw Form::GradeTooLowException;
+	try{
+		if (executor.getGrade() > this->getRGToExecute())
+			throw Form::GradeTooLowException();
+		else if (!(this->getSign()))
+			throw Form::IsNotSigned();
+		std::string filename;
+		filename += target;
+		filename += "_shrubbery";
+		std::ofstream _outfile(filename);
+		for (int i = 0; i < 10; i++)
+			_outfile << tree[i] << std::endl;
+		_outfile.close();
+		if (!_outfile.good())
+			throw ShrubberyCreationForm::WriteInFileError();
+		std::cout << executor << " executed " << *this << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }

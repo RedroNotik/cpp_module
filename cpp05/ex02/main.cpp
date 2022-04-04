@@ -4,43 +4,22 @@
 
 #include "Bureaucrat.hpp"
 #include "iomanip"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	Form	*form = new Form("Form_1", 130, 30);
+	Form *shrub = new ShrubberyCreationForm("home");
+	Bureaucrat *bob = new Bureaucrat("Bob", 20);
+	Bureaucrat *john = new Bureaucrat("John", 138);
+	Bureaucrat *slava = new Bureaucrat("Slava", 150);
+	shrub->execute(*bob);
+	slava->signForm(*shrub);
+	bob->signForm(*shrub);
+	shrub->execute(*john);
+	shrub->execute(*bob);
 	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
-	{
-		try
-		{
-			Bureaucrat *bob = new Bureaucrat("Bob", 131);
-			Form *new_f = form;
-			bob->signForm(*new_f);
-			bob->IncrGrade();
-			bob->signForm(*new_f);
-			std::cout << *bob << std::endl;
-			delete bob;
-		}
-		catch (std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
-	std::cout << *form << std::endl;
-	{
-		try
-		{
-			Bureaucrat *bob = new Bureaucrat("NeBob", 122);
-			std::cout << *bob << std::endl;
-			bob->signForm(*form);
-			delete bob;
-		}
-		catch (std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	delete form;
-	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
+	delete shrub;
+	delete bob;
+	delete john;
 	return 0;
 }

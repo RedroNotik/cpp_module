@@ -40,6 +40,7 @@ void Form::beSigned(Bureaucrat const &bureaucrat)
 		throw Form::GradeTooLowException();
 	else
 		is_signed = true;
+	std::cout << bureaucrat << " signed " << *this << std::endl;
 }
 
 std::ostream & operator<<(std::ostream &o, Form const &i)

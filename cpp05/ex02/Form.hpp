@@ -18,18 +18,19 @@ private:
 	const int			rd_to_sign;
 	const int			rd_to_execute;
 	Form();
+
 public:
 	class GradeTooLowException:public std::exception
 	{
-		virtual const char* what() const throw();{
-			return ("Grade too low");
-		}
+		virtual const char* what() const throw();
 	};
 	class GradeTooHighException:public std::exception
 	{
-		virtual const char* what() const throw(){
-			return ("Grade too high");
-		}
+		virtual const char* what() const throw();
+	};
+	class IsNotSigned:public std::exception
+	{
+		virtual const char* what() const throw();
 	};
 	Form(const std::string &name, int sign, int execute);
 	Form(Form const &rhs);
@@ -44,7 +45,7 @@ public:
 
 	void beSigned(Bureaucrat const &bureaucrat);
 
-	void execute(Bureaucrat const & executor) const = 0;
+	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream &o, Form const & i);
