@@ -5,21 +5,38 @@
 #include "Bureaucrat.hpp"
 #include "iomanip"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Form *shrub = new ShrubberyCreationForm("home");
-	Bureaucrat *bob = new Bureaucrat("Bob", 20);
-	Bureaucrat *john = new Bureaucrat("John", 138);
-	Bureaucrat *slava = new Bureaucrat("Slava", 150);
-	shrub->execute(*bob);
-	slava->signForm(*shrub);
-	bob->signForm(*shrub);
-	shrub->execute(*john);
-	shrub->execute(*bob);
+	Bureaucrat bob("Bob", 20);
+	Bureaucrat john("John", 138);
+	Bureaucrat slava("Slava", 150);
+	{
+		ShrubberyCreationForm shrub("home");
+		bob.executeForm(shrub);
+		slava.signForm(shrub);
+		bob.signForm(shrub);
+		john.executeForm(shrub);
+		bob.executeForm(shrub);
+	}
 	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
-	delete shrub;
-	delete bob;
-	delete john;
+	{
+		RobotomyRequestForm form("printer");
+		bob.signForm(form);
+		john.executeForm(form);
+		bob.executeForm(form);
+	}
+	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
+	{
+		PresidentialPardonForm form("Alex");
+		Bureaucrat lol = bob;
+		lol.signForm(form);
+		lol.executeForm(form);
+		Bureaucrat kek("Tim", 2);
+		kek.executeForm(form);
+	}
+	std::cout <<  std::setfill('*') <<std::setw(40) << "*"<<std::endl;
 	return 0;
 }

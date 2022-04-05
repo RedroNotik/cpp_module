@@ -32,8 +32,6 @@ public:
 	int getGrade(void) const;
 	void IncrGrade();
 	void DecrGrade();
-
-	void signForm(For);
 };
 
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & i);
