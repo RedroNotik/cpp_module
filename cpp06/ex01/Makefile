@@ -3,7 +3,7 @@ NAME = name
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./ -MMD
 
-SRC =   ./main.cpp ./Convert.cpp
+SRC =   ./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)

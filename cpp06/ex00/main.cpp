@@ -7,14 +7,10 @@
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
+	{
+		std::cerr << "Incorrect num of argc\n";
 		return 0;
-//	try
-//	{
-		Convert num(argv[1]);
-		num.printChar();
-//	}
-//	catch (std::exception &e)
-//	{
-//		std::cout << e.what() << std::endl;
-//	}
+	}
+	Convert num(argv[1]);
+	num.Check_type();
 }

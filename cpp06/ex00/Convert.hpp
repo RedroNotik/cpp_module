@@ -10,7 +10,6 @@ class Convert
 {
 private:
 	const char *_str;
-	double _value;
 	Convert();
 public:
 class NonDisplay : public std::exception
@@ -27,10 +26,11 @@ class Impossible : public std::exception
 
 	Convert &operator=(Convert const &rhs);
 
-	void printDouble() const;
-	void printFloat() const;
-	void printChar() const;
-	void printInt() const;
+	void printDouble(double num) const;
+	void printFloat(float num) const;
+	void printChar(int num) const;
+	void printInt(long num) const;
+	void Check_type() const;
 };
 
 
